@@ -36,7 +36,7 @@ namespace FT.Api.Controllers
         [Route("create")]
         public ModelResponse<UserApiModel> Create(UserApiModel model,string email)
         {
-            return PrepareResponse<ModelResponse<UserApiModel>>(u=>u.Item= _service.Add(model,email));
+            return PrepareResponse<ModelResponse<UserApiModel>>(u=>u.Item= _service.Add(model, ""));
         }
         [HttpDelete]
         [Route("delete")]

@@ -1,4 +1,5 @@
 ﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -24,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>2.8</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -71,11 +73,13 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
+    <Reference Include="System.Core">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Core.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.0\lib\net45\System.Web.Helpers.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.Helpers.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Http, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.6\lib\net45\System.Web.Http.dll</HintPath>
@@ -83,20 +87,20 @@
     <Reference Include="System.Web.Http.WebHost, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.6\lib\net45\System.Web.Http.WebHost.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Mvc, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.1.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    <Reference Include="System.Web.Mvc, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.6\lib\net45\System.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.Razor.3.1.0\lib\net45\System.Web.Razor.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.6\lib\net45\System.Web.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.0\lib\net45\System.Web.WebPages.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -112,18 +116,56 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Global.asax" />
-    <Content Include="Tasks\Script\bootstrap.bundle.js" />
-    <Content Include="Tasks\Script\bootstrap.js" />
-    <Content Include="Tasks\Script\jquery.js" />
-    <Content Include="Tasks\Script\main.js" />
-    <Content Include="Tasks\Style\bootstrap-grid.css" />
-    <Content Include="Tasks\Style\bootstrap-reboot.css" />
-    <Content Include="Tasks\Style\bootstrap-theme.css" />
-    <Content Include="Tasks\Style\bootstrap.css" />
-    <Content Include="Tasks\Style\bootstrap.min.css" />
-    <Content Include="Tasks\Style\style.css" />
-    <Content Include="Tasks\tasks.html" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Login\css\bootstrap-grid.css" />
+    <Content Include="Login\css\bootstrap-grid.min.css" />
+    <Content Include="Login\css\bootstrap-reboot.css" />
+    <Content Include="Login\css\bootstrap-reboot.min.css" />
+    <Content Include="Login\css\bootstrap.css" />
+    <Content Include="Login\css\bootstrap.min.css" />
+    <Content Include="Login\Index.html" />
+    <Content Include="Login\css\IndexStale.css" />
+    <Content Include="Login\Scripts\IndexJs.js" />
+    <Content Include="Login\Scripts\bootstrap.bundle.js" />
+    <Content Include="Login\Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Login\Scripts\bootstrap.js" />
+    <Content Include="Login\Scripts\bootstrap.min.js" />
+    <Content Include="Login\Scripts\esm\popper-utils.js" />
+    <Content Include="Login\Scripts\esm\popper-utils.min.js" />
+    <Content Include="Login\Scripts\esm\popper.js" />
+    <Content Include="Login\Scripts\esm\popper.min.js" />
+    <Content Include="Login\Scripts\esm\popper.min.js.map" />
+    <Content Include="Login\Scripts\esm\popper.js.map" />
+    <Content Include="Login\Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Login\Scripts\esm\popper-utils.js.map" />
+    <Content Include="Login\Scripts\bootstrap.min.js.map" />
+    <Content Include="Login\Scripts\bootstrap.js.map" />
+    <Content Include="Login\Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Login\Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <None Include="Login\Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Login\Scripts\jquery-3.3.1.js" />
+    <Content Include="Login\Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Login\Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Login\Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Login\Scripts\popper-utils.js" />
+    <Content Include="Login\Scripts\popper-utils.min.js" />
+    <Content Include="Login\Scripts\popper.js" />
+    <Content Include="Login\Scripts\popper.min.js" />
+    <Content Include="Login\Scripts\umd\popper-utils.js" />
+    <Content Include="Login\Scripts\umd\popper-utils.min.js" />
+    <Content Include="Login\Scripts\umd\popper.js" />
+    <Content Include="Login\Scripts\umd\popper.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -133,13 +175,36 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Login\css\bootstrap-grid.css.map" />
+    <Content Include="Login\css\bootstrap-grid.min.css.map" />
+    <Content Include="Login\css\bootstrap-reboot.css.map" />
+    <Content Include="Login\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Login\css\bootstrap.css.map" />
+    <Content Include="Login\css\bootstrap.min.css.map" />
     <None Include="packages.config" />
+    <Content Include="Login\Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Login\Scripts\jquery-3.3.1.min.map" />
+    <Content Include="Login\Scripts\umd\popper.min.js.map" />
+    <Content Include="Login\Scripts\umd\popper.js.map" />
+    <Content Include="Login\Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Login\Scripts\umd\popper-utils.js.map" />
+    <Content Include="Login\Scripts\README.md" />
+    <Content Include="Login\Scripts\popper.min.js.map" />
+    <Content Include="Login\Scripts\popper.js.map" />
+    <Content Include="Login\Scripts\popper-utils.min.js.map" />
+    <Content Include="Login\Scripts\popper-utils.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Login\Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FT.Api\FT.Api.csproj">
@@ -156,6 +221,7 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ProjectExtensions>
