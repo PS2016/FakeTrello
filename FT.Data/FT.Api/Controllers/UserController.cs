@@ -3,6 +3,7 @@ using FT.Api.Model;
 using FT.Services.Services;
 using System;
 using System.Web.Http;
+using System.Web.Security;
 
 namespace FT.Api.Controllers
 {
@@ -25,15 +26,15 @@ namespace FT.Api.Controllers
         }
 
         [HttpPut]
-        [Route("put")]
+        [Route("update")]
         public ModelResponse<UserApiModel> Put(UserApiModel model)
         {
             return PrepareResponse<ModelResponse<UserApiModel>>(x => x.Item = _service.Update(model));
         }
 
         [HttpPost]
-        [Route("post")]
-        public ModelResponse<UserApiModel> Create(UserApiModel model)
+        [Route("create")]
+        public ModelResponse<UserApiModel> Create(UserApiModel model,string email)
         {
             return PrepareResponse<ModelResponse<UserApiModel>>(u=>u.Item= _service.Add(model, ""));
         }
@@ -42,6 +43,22 @@ namespace FT.Api.Controllers
         public  void Delete(Guid id)
         {
              _service.Delete(id);
+        }
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("signin")]
+        public ModelResponse<UserApiModel> SignIn([FromUri]string email, [FromUri]string password)
+        {
+            if (_service.Verify(email, password))
+            {
+                FormsAuthentication.SetAuthCookie(email, false);
+            }
+            else
+            {
+                return PrepareResponse<ModelResponse<UserApiModel>>(x => x.AddError(new BaseError() {  Message = "Invalid login or password." }));
+            }
+
+            return PrepareResponse<ModelResponse<UserApiModel>>(x => x.Item = _service.GetByEmail(email));
         }
     }
 }
