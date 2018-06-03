@@ -48,6 +48,9 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App.cs" />
+    <Compile Include="Base\TestControllerBase.cs" />
+    <Compile Include="Base\TestServer.cs" />
     <Compile Include="Controllers\CommentsControllerTest.cs" />
     <Compile Include="Controllers\TasksControllerTest.cs" />
     <Compile Include="Controllers\UserControllerTest.cs" />
@@ -57,7 +60,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Base\" />
+    <ProjectReference Include="..\FT.Mock\FT.Mock.csproj">
+      <Project>{38B137D8-94E9-4CCC-BFB8-17FD517B2003}</Project>
+      <Name>FT.Mock</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FT.Services\FT.Services.csproj">
+      <Project>{742FB4DD-E960-435A-B9F3-6FF1105A8619}</Project>
+      <Name>FT.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
