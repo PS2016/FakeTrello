@@ -1,8 +1,9 @@
-﻿using FT.Api.Model;
+﻿using AutoMapper;
+using FT.Api.Model;
 using FT.Data;
-using FT.Services;
 using System;
 using System.Linq;
+using System.Web.Helpers;
 
 namespace FT.Services.Services
 {
@@ -12,10 +13,12 @@ namespace FT.Services.Services
         {
 
         }
-        public UserApiModel Add(UserApiModel NewUser)
-        {
-            User user = new User { Id = NewUser.Id, Email = NewUser.Email, FirstName = NewUser.FirstName, LastName = NewUser.LastName, HashPassword = NewUser.HashPassword, LastLogin = NewUser.LastLogin };
-            
+        public UserApiModel Add(UserApiModel NewUser,string password)
+        {            
+            var user = Mapper.Map<UserApiModel, User>(NewUser);
+
+            user.HashPassword = Crypto.HashPassword(password);
+
             _context.Users.Add(user);
             _context.SaveChanges();
             return NewUser;
@@ -23,7 +26,7 @@ namespace FT.Services.Services
         public UserApiModel Update(UserApiModel NewUser)
         {
             var user = _context.Users.FirstOrDefault(x=>x.Id==NewUser.Id);
-            user = new User { Id=NewUser.Id, Email = NewUser.Email, FirstName = NewUser.FirstName, LastName = NewUser.LastName, HashPassword = NewUser.HashPassword, LastLogin = NewUser.LastLogin };
+            user = Mapper.Map<UserApiModel, User>(NewUser);
             _context.SaveChanges();
             return NewUser;
             
@@ -31,7 +34,7 @@ namespace FT.Services.Services
         public UserApiModel Get(Guid UserId)
         {
             var user = _context.Users.FirstOrDefault(x => x.Id ==UserId);
-            UserApiModel RetUser = new UserApiModel { Id = user.Id, Email = user.Email, FirstName = user.FirstName, LastName = user.LastName, HashPassword = user.HashPassword, LastLogin = user.LastLogin };
+            UserApiModel RetUser = Mapper.Map<User, UserApiModel>(user);
             return RetUser;
         }
 
@@ -42,6 +45,18 @@ namespace FT.Services.Services
                 _context.Users.Remove(user);
                 _context.SaveChanges();
                 
+        }
+        public bool Verify(string Email,string password)
+        {
+            var user = _context.Users.FirstOrDefault(x=>x.Email==Email);
+            if (user == null)
+                return false;
+            else if (Crypto.VerifyHashedPassword(password, user.HashPassword))
+            {
+                return true;
+            }
+            else return false;
+
         }
     }
 }

@@ -4,6 +4,7 @@ using System;
 using AutoMapper;
 using System.Data.Entity;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace FT.Services
 {
@@ -26,9 +27,9 @@ namespace FT.Services
         {
             var res =  _context.Tasks;
 
-            var convertedRes = await res.ToListAsync();
+            var resList = Mapper.Map<List<Task>, List<TaskApiModel>>(await res.ToListAsync());
 
-            return Mapper.Map<List<Task>, List<TaskApiModel>>(convertedRes);
+            return resList.OrderBy(r=>r.Priority).ThenBy(r=>r.Type).ThenBy(r=>r.DateCreated).ToList();
 
         }
 
