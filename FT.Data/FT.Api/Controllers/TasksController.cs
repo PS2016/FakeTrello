@@ -11,7 +11,7 @@ using System.Web.Http;
 namespace FT.Api.Controllers
 {
     [VersionRoute("tasks")]
-    public class TasksController : ControllerBase
+    public class TasksController : ApiController
     {
         private TaskService _service;
         public TasksController(TaskService service)
