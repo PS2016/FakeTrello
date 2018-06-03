@@ -30,23 +30,32 @@ namespace FT.Api.Controllers
         }
 
         [HttpPut]
-        [Route("put")]
+        [Route("update")]
         public ModelResponse<UserApiModel> Put(UserApiModel model)
         {
             return PrepareResponse<ModelResponse<UserApiModel>>(x => x.Item = _service.Update(model));
         }
 
         [HttpPost]
-        [Route("post")]
-        public ModelResponse<UserApiModel> Create(UserApiModel model)
+        [Route("create")]
+        public ModelResponse<UserApiModel> Create(UserApiModel model,string email)
         {
-            return PrepareResponse<ModelResponse<UserApiModel>>(u=>u.Item= _service.Add(model));
+            return PrepareResponse<ModelResponse<UserApiModel>>(u=>u.Item= _service.Add(model,email));
         }
         [HttpDelete]
         [Route("delete")]
         public  void Delete(Guid id)
         {
              _service.Delete(id);
+        }
+        [HttpGet]
+        [Route("signin")]
+        public ModelResponse<UserApiModel> SignIn([FromUri]string email, [FromUri]string password)
+        {
+            if (!_service.VerifyPassword(email, password))
+                return PrepareResponse<ModelResponse<UserApiModel>>(x => x.AddError("Invalid login or password."));
+
+            return PrepareResponse<ModelResponse<UserApiModel>>(x => x.Item = _service.GetByEmail(email));
         }
     }
 }
