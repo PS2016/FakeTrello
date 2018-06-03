@@ -55,6 +55,12 @@
     <Reference Include="Autofac.Integration.WebApi, Version=4.1.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.WebApi2.4.1.0\lib\net45\Autofac.Integration.WebApi.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -160,9 +166,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\VersionRoutAttribut.cs" />
     <Compile Include="Config\WebApiConfig.cs" />
     <Compile Include="Base\ControllerBase.cs" />
-    <Compile Include="Base\ModelControllerBase.cs" />
     <Compile Include="Config\AutofacConfig.cs" />
     <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\TasksController.cs" />
@@ -200,6 +206,10 @@
     <ProjectReference Include="..\FT.Data\FT.Data.csproj">
       <Project>{152BD0DD-F353-455E-9221-ED5DD4474CDD}</Project>
       <Name>FT.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FT.Services\FT.Services.csproj">
+      <Project>{742FB4DD-E960-435A-B9F3-6FF1105A8619}</Project>
+      <Name>FT.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
