@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FT.Data;
 
-namespace FT.Services.Base
+namespace FT.Services
 {
-    public class ServiceBase<TModel> where Tcontext:DbContext
+    public class ServiceBase
     {
-        protected readonly Tcontext _context;
+        protected readonly FTContext _context;
 
-        public ServiceBase(Tcontext context)
+        public ServiceBase(FTContext context)
         {
             _context = context;
         }
