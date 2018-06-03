@@ -1,6 +1,5 @@
 ﻿using FT.Api.Model;
-using FT.Data;
-using FT.Services.Base;
+using FT.Data; 
 using System;
 
 //namespace FT.Services.Services

@@ -1,8 +1,8 @@
 ﻿using FT.Api.Model;
 using FT.Data;
 using System;
-using System.Linq;
-
+using AutoMapper;
+using System.Data.Entity;
 
 namespace FT.Services
 {
@@ -13,11 +13,49 @@ namespace FT.Services
 
         }
 
-        public TaskApiModel Get(Guid Id)
+        public async System.Threading.Tasks.Task<TaskApiModel> Get(Guid Id)
         {
-            var res = _context.Tasks.FirstOrDefault(t => t.Id == Id);
-            return null;
+            var res = await _context.Tasks.FirstOrDefaultAsync(t => t.Id == Id);
 
+            return Mapper.Map<Task, TaskApiModel>(res);
+
+        }
+
+        public async System.Threading.Tasks.Task<TaskApiModel> CreateAsync(TaskApiModel model)
+        {
+            _context.Tasks.Add(Mapper.Map<TaskApiModel, Task>(model));
+
+            _context.SaveChanges();
+
+            return await Get(model.Id);
+
+        }
+
+        public async System.Threading.Tasks.Task<TaskApiModel> Update(TaskApiModel model)
+        {
+            var res = await _context.Tasks.FirstOrDefaultAsync(t => t.Id == model.Id);
+
+            res.Priority = model.Priority;
+            res.State = model.State;
+            res.Title = model.Title;
+            res.Description = model.Description;
+
+            await _context.SaveChangesAsync();
+
+            return await Get(res.Id);
+        }
+
+        public async System.Threading.Tasks.Task<bool> Delete(Guid Id)
+        {
+            var res = await _context.Tasks.FirstOrDefaultAsync(t => t.Id == Id);
+
+            _context.Tasks.Remove(res);
+
+            _context.SaveChanges();
+
+            var deleteTry = Get(Id); 
+
+            return deleteTry==null;
         }
 
     }
