@@ -57,12 +57,20 @@ namespace FT.Services
         }
 
         public async System.Threading.Tasks.Task<bool> Delete(Guid Id)
+        public List<TaskApiModel> GetAll(Guid Id)
         {
-            var res = await _context.Tasks.FirstOrDefaultAsync(t => t.Id == Id);
 
-            _context.Tasks.Remove(res);
+            return new List<TaskApiModel>();
 
-            _context.SaveChanges();
+        }
+        public void Delete(Guid TaskId)
+        {
+   
+                var task = _context.Users.FirstOrDefault(x => x.Id == TaskId);
+                _context.Users.Remove(task);
+                _context.SaveChanges();
+                
+            
 
             var deleteTry = Get(Id);
 

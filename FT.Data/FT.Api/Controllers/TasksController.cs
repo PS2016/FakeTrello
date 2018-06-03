@@ -16,8 +16,8 @@ namespace FT.Api.Controllers
         public TasksController(TaskService service)
         {
             _service = service;
-        } 
-        
+        }
+
         [HttpGet]
         public async System.Threading.Tasks.Task<ListResponse<TaskApiModel>> GetAll()
         {

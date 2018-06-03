@@ -6,9 +6,9 @@ using System.Linq;
 
 namespace FT.Services.Services
 {
-    public class TaskCommentsService:ServiceBase
+    public class TaskCommentsService : ServiceBase
     {
-         public TaskCommentsService(FTContext context):base(context)
+        public TaskCommentsService(FTContext context) : base(context)
         {
         }
         public TaskCommentApiModel Get(Guid id)
@@ -19,7 +19,7 @@ namespace FT.Services.Services
         }
         public TaskCommentApiModel Create(TaskCommentApiModel model)
         {
-            var message = AutoMapperConfig.Mapper.Map<TaskCommentApiModel,TaskComment>(model);
+            var message = AutoMapperConfig.Mapper.Map<TaskCommentApiModel, TaskComment>(model);
             _context.TaskComments.Add(message);
             _context.SaveChanges();
             return AutoMapperConfig.Mapper.Map<TaskCommentApiModel, TaskComment>(message);
@@ -40,5 +40,11 @@ namespace FT.Services.Services
             _context.TaskComments.Remove(message);
             _context.SaveChanges();
         }
+    }
+    public List<TaskCommentApiModel> GetByTaskId(Guid TaskId)
+    {
+        var list = AutoMapper.Mapper.Map<List<TaskCommentApiModel>>(_context.TaskComments.Where(x => x.TaskId == TaskId).ToList());
+
+        return list.OrderBy(x => x.DateCreated).ToList();
     }
 }

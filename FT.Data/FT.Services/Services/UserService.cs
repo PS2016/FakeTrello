@@ -15,7 +15,7 @@ namespace FT.Services.Services
         public UserApiModel Add(UserApiModel NewUser)
         {
             User user = new User { Id = NewUser.Id, Email = NewUser.Email, FirstName = NewUser.FirstName, LastName = NewUser.LastName, HashPassword = NewUser.HashPassword, LastLogin = NewUser.LastLogin };
-
+            
             _context.Users.Add(user);
             _context.SaveChanges();
             return NewUser;
