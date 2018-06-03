@@ -89,7 +89,7 @@
     <Compile Include="Context\FTContext.cs" />
     <Compile Include="Enums\PriorityEnum.cs" />
     <Compile Include="Enums\TypeEnum.cs" />
-    <Compile Include="Model\TaskComments.cs" />
+    <Compile Include="Model\TaskComment.cs" />
     <Compile Include="Model\Task.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Enums\StateEnum.cs" />

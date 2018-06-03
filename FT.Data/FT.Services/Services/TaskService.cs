@@ -3,7 +3,8 @@ using FT.Data;
 using System;
 using System.Linq;
 
-namespace FT.Services.Services
+
+namespace FT.Services
 {
     public class TaskService : ServiceBase
     {
@@ -14,7 +15,7 @@ namespace FT.Services.Services
 
         public TaskApiModel Get(Guid Id)
         {
-            var res = _context.Tasks.FirstOrDefault(t => t.id == Id);
+            var res = _context.Tasks.FirstOrDefault(t => t.Id == Id);
             return null;
 
         }
