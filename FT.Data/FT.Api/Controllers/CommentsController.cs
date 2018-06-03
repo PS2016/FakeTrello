@@ -14,8 +14,8 @@ namespace FT.Api.Controllers
     [VersionRoute("comments")]
     public class CommentsController : ControllerBase
     {
-        private readonly TaskCommentsServices _service;
-        public CommentsController(TaskCommentsServices service) 
+        private readonly TaskCommentsService _service;
+        public CommentsController(TaskCommentsService service) 
         {
             _service = service;
         }
