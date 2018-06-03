@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using Autofac.Integration.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,14 +14,8 @@ namespace FT.Services.Autofac
         {
           
             var builder = new ContainerBuilder();
-
-          
-        
-
            
             var container = builder.Build();
-
-           
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         }
     }
