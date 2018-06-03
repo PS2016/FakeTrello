@@ -6,9 +6,9 @@ using System.Linq;
 
 namespace FT.Services.Services
 {
-    public class TaskCommentsServices:ServiceBase
+    public class TaskCommentsService:ServiceBase
     {
-         public TaskCommentsServices(FTContext context):base(context)
+         public TaskCommentsService(FTContext context):base(context)
         {
         }
         public TaskCommentApiModel Get(Guid id)

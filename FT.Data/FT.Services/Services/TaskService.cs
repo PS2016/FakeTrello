@@ -3,6 +3,7 @@ using FT.Data;
 using System;
 using AutoMapper;
 using System.Data.Entity;
+using System.Collections.Generic;
 
 namespace FT.Services
 {
@@ -18,6 +19,16 @@ namespace FT.Services
             var res = await _context.Tasks.FirstOrDefaultAsync(t => t.Id == Id);
 
             return Mapper.Map<Task, TaskApiModel>(res);
+
+        }
+
+        public async System.Threading.Tasks.Task<List<TaskApiModel>> GetAll()
+        {
+            var res =  _context.Tasks;
+
+            var convertedRes = await res.ToListAsync();
+
+            return Mapper.Map<List<Task>, List<TaskApiModel>>(convertedRes);
 
         }
 

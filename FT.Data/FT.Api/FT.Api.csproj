@@ -201,6 +201,10 @@
       <Project>{152BD0DD-F353-455E-9221-ED5DD4474CDD}</Project>
       <Name>FT.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FT.Services\FT.Services.csproj">
+      <Project>{742FB4DD-E960-435A-B9F3-6FF1105A8619}</Project>
+      <Name>FT.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

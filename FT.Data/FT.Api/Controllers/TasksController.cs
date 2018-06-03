@@ -1,4 +1,6 @@
 ﻿using FT.Api.Model;
+using FT.Data;
+using FT.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,25 +12,23 @@ namespace FT.Api.Controllers
 {
     public class TasksController : ApiController
     {
-        //private readonly TasksService _service;
-        //public TasksController(TasksService service) : base(service)
-        //{
-        //    _service = service;
-        //}
+        private TaskService _service;
+        public TasksController(TaskService service)
+        {
+            _service = service;
+        } 
+        
+        [HttpGet]
+        public async System.Threading.Tasks.Task<ListResponse<TaskApiModel>> GetAll()
+        {
+            return new ListResponse<TaskApiModel> { Items = await _service.GetAll() };
+        }
 
-        //[HttpGet]
-        //[Route("all")]
-        //public ListResponse<TaskApiModel> GetAll([FromUri]Guid userId)
-        //{
-        //    return PrepareResponse<ListResponse<TaskApiModel>>(x => x.Items = _service.GetAll(userId));
-        //}
+        [HttpDelete]
+        public async System.Threading.Tasks.Task<bool> Delete(Guid Id)
+        {
+            return await _service.Delete(Id);
+        }
 
-        //[HttpGet]
-        //[Route("clear")]
-        //public ResponseBase Clear([FromUri]Guid taskId)
-        //{
-        //    _service.Clear(taskId);
-        //    return PrepareResponse<ResponseBase>();
-        //}
     }
 }
