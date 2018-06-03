@@ -100,7 +100,7 @@
     <Compile Include="Base\ServiceBase.cs" />
     <Compile Include="Config\AutoMapperConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\TaskCommentsServices.cs" />
+    <Compile Include="Services\TaskCommentsService.cs" />
     <Compile Include="Services\TaskService.cs" />
     <Compile Include="Services\UserService.cs" />
   </ItemGroup>

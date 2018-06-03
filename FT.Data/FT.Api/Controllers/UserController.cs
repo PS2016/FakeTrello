@@ -15,36 +15,31 @@ namespace FT.Api.Controllers
         }
 
 
-        //[HttpGet]
-        //[Route("")]
-        //public ModelResponse<UserApiModel> Get(Guid id)
-        //{
-        //    var item = _service.Get(id);
-        //    return PrepareResponse<ModelResponse<UserApiModel>>(x => x.Item = item);
-        //}
+        [HttpGet]
+        [Route("getId")]
+        public ModelResponse<UserApiModel> Get([FromUri]Guid id)
+        {
+            return PrepareResponse<ModelResponse<UserApiModel>>(x => x.Item =_service.Get(id));
+        }
 
-        //[HttpPost]
-        //[Route("")]
-        //public ModelResponse<UserApiModel> Post(UserApiModel model)
-        //{
-        //    var item = _service.Create(model);
-        //    return PrepareResponse<ModelResponse<UserApiModel>>(x => x.Item = item);
-        //}
+        [HttpPut]
+        [Route("put")]
+        public ModelResponse<UserApiModel> Put(UserApiModel model)
+        {
+            return PrepareResponse<ModelResponse<UserApiModel>>(x => x.Item = _service.Update(model));
+        }
 
-        //[HttpPut]
-        //[Route("")]
-        //public ModelResponse<UserApiModel> Put(UserApiModel model)
-        //{
-        //    var item = _service.Update(model);
-        //    return PrepareResponse<ModelResponse<UserApiModel>>(x => x.Item = item);
-        //}
-
-        //[HttpPost]
-        //[Route("")]
-        //public ResponseBase Create(Guid id)
-        //{
-        //    _service.Delete(id);
-        //    return PrepareResponse<ResponseBase>();
-        //}
+        [HttpPost]
+        [Route("post")]
+        public ModelResponse<UserApiModel> Create(UserApiModel model)
+        {
+            return PrepareResponse<ModelResponse<UserApiModel>>(u=>u.Item= _service.Add(model));
+        }
+        [HttpDelete]
+        [Route("delete")]
+        public  void Delete(Guid id)
+        {
+             _service.Delete(id);
+        }
     }
 }
