@@ -52,8 +52,8 @@ namespace FT.Api.Controllers
         [Route("signin")]
         public ModelResponse<UserApiModel> SignIn([FromUri]string email, [FromUri]string password)
         {
-            if (!_service.VerifyPassword(email, password))
-                return PrepareResponse<ModelResponse<UserApiModel>>(x => x.AddError("Invalid login or password."));
+            //if (!_service.VerifyPassword(email, password))
+            //   return PrepareResponse<ModelResponse<UserApiModel>>(x => x.AddError("Invalid login or password."));
 
             return PrepareResponse<ModelResponse<UserApiModel>>(x => x.Item = _service.GetByEmail(email));
         }
