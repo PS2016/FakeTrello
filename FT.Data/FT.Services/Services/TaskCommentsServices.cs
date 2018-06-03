@@ -22,7 +22,7 @@ namespace FT.Services.Services
             var message = AutoMapperConfig.Mapper.Map<TaskCommentApiModel,TaskComment>(model);
             _context.TaskComments.Add(message);
             _context.SaveChanges();
-            return AutoMapperConfig.Mapper.Map<TaskCommentApiModel, TaskComment>(message);
+            return AutoMapperConfig.Mapper.Map< TaskComment, TaskCommentApiModel>(message);
         }
         public TaskCommentApiModel Update(TaskCommentApiModel model)
         {
