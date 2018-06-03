@@ -11,6 +11,7 @@ using System.Web.Http;
 
 namespace FT.Api.Controllers
 {
+    [VersionRoute("comments")]
     public class CommentsController : ControllerBase
     {
         private readonly TaskCommentsServices _service;

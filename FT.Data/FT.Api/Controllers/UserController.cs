@@ -11,6 +11,7 @@ using System.Web.Http;
 
 namespace FT.Api.Controllers
 {
+    [VersionRoute("users")]
     public class UserController : ControllerBase
     {
         private readonly UserService _service;

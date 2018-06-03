@@ -6,39 +6,38 @@ using System.Linq;
 
 namespace FT.Services.Services
 {
-    public class TaskCommentsServices:ServiceBase
+    public class TaskCommentsServices : ServiceBase
     {
-         public TaskCommentsServices(FTContext context):base(context)
+        public TaskCommentsServices(FTContext context) : base(context)
         {
         }
-        public TaskCommentApiModel Get(Guid id)
+        public TaskCommentApiModel Add(TaskCommentApiModel NewModel)
         {
-            var comment = _context.TaskComments.FirstOrDefault(c => c.TaskId == id);
-            if (comment == null) return null;
-            return AutoMapperConfig.Mapper.Map<TaskComment, TaskCommentApiModel>(comment);
-        }
-        public TaskCommentApiModel Create(TaskCommentApiModel model)
-        {
-            var message = AutoMapperConfig.Mapper.Map<TaskCommentApiModel,TaskComment>(model);
-            _context.TaskComments.Add(message);
+            var model = AutoMapper.Mapper.Map<TaskComment>(NewModel);
+            _context.TaskComments.Add(model);
             _context.SaveChanges();
-            return AutoMapperConfig.Mapper.Map< TaskComment, TaskCommentApiModel>(message);
+            return NewModel;
         }
-        public TaskCommentApiModel Update(TaskCommentApiModel model)
+        public TaskCommentApiModel Update(TaskCommentApiModel NewModel)
         {
-            var text = _context.TaskComments.FirstOrDefault(t => t.Id == model.Id);
-            if (text == null) return null;
-            text.Text = model.Text;
+            var model= _context.TaskComments.FirstOrDefault(x => x.Id == NewModel.Id);
+            model= AutoMapper.Mapper.Map<TaskComment>(NewModel);
             _context.SaveChanges();
-            return AutoMapperConfig.Mapper.Map<TaskComment, TaskCommentApiModel>(text);
+            return NewModel;
         }
-        public void Delete(Guid id)
+        public TaskCommentApiModel Get(Guid Id)
         {
-            var message = _context.TaskComments.FirstOrDefault(m => m.UserId == id);
-            if (message == null)
-                return;
-            _context.TaskComments.Remove(message);
-            _context.SaveChanges();
+            var model = _context.TaskComments.FirstOrDefault(x => x.Id == Id);
+            return AutoMapper.Mapper.Map<TaskCommentApiModel>(model);
+        }
+        public List<TaskCommentApiModel> GetByTaskId(Guid TaskId)
+        {
+            var list = AutoMapper.Mapper.Map<List<TaskCommentApiModel>>(_context.TaskComments.Where(x => x.TaskId == TaskId).ToList());
+            
+            return list.OrderBy(x => x.DateCreated).ToList(); 
+        }
+        public void Delete(Guid Id)
+        {
         }
     }
 }

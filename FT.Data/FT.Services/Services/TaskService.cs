@@ -54,11 +54,12 @@ namespace FT.Services
         }
         public void Delete(Guid TaskId)
         {
-            var res = await _context.Tasks.FirstOrDefaultAsync(t => t.Id == Id);
-
-            _context.Tasks.Remove(res);
-
-            _context.SaveChanges();
+   
+                var task = _context.Users.FirstOrDefault(x => x.Id == TaskId);
+                _context.Users.Remove(task);
+                _context.SaveChanges();
+                
+            
 
             var deleteTry = Get(Id);
 
