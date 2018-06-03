@@ -1,6 +1,6 @@
 ﻿using FT.Api.Base;
 using FT.Api.Model;
-
+using FT.Services;
 using FT.Services.Services;
 using System;
 using System.Collections.Generic;
@@ -11,6 +11,7 @@ using System.Web.Http;
 
 namespace FT.Api.Controllers
 {
+    [VersionRoute("tasks")]
     public class TasksController : ControllerBase
     {
         private readonly TaskService _service;
