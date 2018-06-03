@@ -1,12 +1,12 @@
 ﻿using FT.Api.Model;
 using FT.Data;
-using FT.Services.Base;
+using FT.Services;
 using System;
 using System.Linq;
 
 namespace FT.Services.Services
 {
-    public class UserService : ServiceBase<FTContext>
+    public class UserService : ServiceBase
     {
         public UserService(FTContext context) : base(context)
         {
@@ -15,6 +15,7 @@ namespace FT.Services.Services
         public UserApiModel Add(UserApiModel NewUser)
         {
             User user = new User { Id = NewUser.Id, Email = NewUser.Email, FirstName = NewUser.FirstName, LastName = NewUser.LastName, HashPassword = NewUser.HashPassword, LastLogin = NewUser.LastLogin };
+
             _context.Users.Add(user);
             _context.SaveChanges();
             return NewUser;
@@ -34,20 +35,13 @@ namespace FT.Services.Services
             return RetUser;
         }
 
-        public bool Delete(Guid UserId)
+        public void Delete(Guid UserId)
         {
-            try
-            {
+     
                 var user = _context.Users.FirstOrDefault(x => x.Id == UserId);
                 _context.Users.Remove(user);
                 _context.SaveChanges();
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-            
+                
         }
     }
 }
