@@ -13,9 +13,11 @@ namespace FT.Services.Services
         {
 
         }
-        public UserApiModel Add(UserApiModel NewUser)
-        {
+        public UserApiModel Add(UserApiModel NewUser,string password)
+        {            
             var user = Mapper.Map<UserApiModel, User>(NewUser);
+
+            user.HashPassword = Crypto.HashPassword(password);
 
             _context.Users.Add(user);
             _context.SaveChanges();
@@ -44,7 +46,7 @@ namespace FT.Services.Services
                 _context.SaveChanges();
                 
         }
-        public bool Veryfy(string Email,string password)
+        public bool Verify(string Email,string password)
         {
             var user = _context.Users.FirstOrDefault(x=>x.Email==Email);
             if (user == null)
