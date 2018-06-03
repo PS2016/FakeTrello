@@ -2,6 +2,8 @@
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
 using FT.Data;
+using FT.Services;
+using FT.Services.Services;
 using System.Web.Http;
 using System.Web.Mvc;
 
@@ -16,7 +18,10 @@ namespace FT.Api.Config
 
             builder.RegisterType<FTContext>().InstancePerLifetimeScope().AsSelf();
 
-            //Register service HERE
+            //Register service HERE 
+            builder.RegisterType<TaskService>().AsSelf();
+            builder.RegisterType<UserService>().AsSelf();
+            builder.RegisterType<TaskCommentsService>().AsSelf();
 
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));

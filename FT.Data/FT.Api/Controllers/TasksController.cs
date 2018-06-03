@@ -1,7 +1,6 @@
-﻿using FT.Api.Base;
-using FT.Api.Model;
-
-using FT.Services.Services;
+﻿using FT.Api.Model;
+using FT.Data;
+using FT.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,61 +10,38 @@ using System.Web.Http;
 
 namespace FT.Api.Controllers
 {
-    public class TasksController : ControllerBase
+    [VersionRoute("tasks")]
+    public class TasksController : ApiController
     {
-        private readonly TaskService _service;
-        public TasksController(TaskService service) 
+        private TaskService _service;
+        public TasksController(TaskService service)
         {
             _service = service;
         }
 
         [HttpGet]
-        [Route("all")]
-        public ListResponse<TaskApiModel> GetAll([FromUri]Guid userId)
+        public async System.Threading.Tasks.Task<ListResponse<TaskApiModel>> GetAll()
         {
-            return PrepareResponse<ListResponse<TaskApiModel>>(x => x.Items = _service.GetAll(userId));
+            return new ListResponse<TaskApiModel> { Items = await _service.GetAllAsync() };
         }
 
-        [HttpGet]
-        [Route("clear")]
-        public ResponseBase Clear([FromUri]Guid taskId)
+        [HttpDelete]
+        public async System.Threading.Tasks.Task<bool> Delete(Guid Id)
         {
-            _service.Clear(taskId);
-            return PrepareResponse<ResponseBase>();
+            return await _service.DeleteAsync(Id);
         }
 
-
-
-        [HttpGet]
-        [Route("")]
-        public ModelResponse<TaskApiModel> Get(Guid id)
-        {
-            var item = _service.Get(id);
-            return PrepareResponse<ModelResponse<TaskApiModel>>(x => x.Item = item);
-        }
 
         [HttpPost]
-        [Route("")]
-        public ModelResponse<TaskApiModel> Post(TaskApiModel model)
+        public async System.Threading.Tasks.Task<ModelResponse<TaskApiModel>> Create(TaskApiModel model)
         {
-            var item = _service.Create(model);
-            return PrepareResponse<ModelResponse<TaskApiModel>>(x => x.Item = item);
+            return new ModelResponse<TaskApiModel> { Item = await _service.CreateAsync(model) };
         }
 
         [HttpPut]
-        [Route("")]
-        public ModelResponse<TaskApiModel> Put(TaskApiModel model)
+        public async System.Threading.Tasks.Task<ModelResponse<TaskApiModel>> Put(TaskApiModel model)
         {
-            var item = _service.Update(model);
-            return PrepareResponse<ModelResponse<TaskApiModel>>(x => x.Item = item);
-        }
-
-        [HttpPost]
-        [Route("")]
-        public ResponseBase Create(Guid id)
-        {
-            _service.Delete(id);
-            return PrepareResponse<ResponseBase>();
+            return new ModelResponse<TaskApiModel> { Item = await _service.UpdateAsync(model) };
         }
     }
 }

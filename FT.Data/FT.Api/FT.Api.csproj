@@ -166,6 +166,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\VersionRoutAttribut.cs" />
     <Compile Include="Config\WebApiConfig.cs" />
     <Compile Include="Base\ControllerBase.cs" />
     <Compile Include="Config\AutofacConfig.cs" />
@@ -207,7 +208,7 @@
       <Name>FT.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\FT.Services\FT.Services.csproj">
-      <Project>{742fb4dd-e960-435a-b9f3-6ff1105a8619}</Project>
+      <Project>{742FB4DD-E960-435A-B9F3-6FF1105A8619}</Project>
       <Name>FT.Services</Name>
     </ProjectReference>
   </ItemGroup>
