@@ -23,6 +23,7 @@ namespace FT.Data
         public string HashPassword { get; set; }
         public DateTime? LastLogin { get; set; }
         #region
+        public virtual ICollection<TaskComments> TaskComments { get; set; }
         public virtual ICollection<Task> Tasks { get; set; } = new HashSet<Task>();
         #endregion
     }
