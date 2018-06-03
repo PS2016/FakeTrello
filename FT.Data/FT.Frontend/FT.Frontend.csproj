@@ -122,6 +122,7 @@
     <Content Include="Tasks\Style\bootstrap-theme.css" />
     <Content Include="Tasks\Style\bootstrap.css" />
     <Content Include="Tasks\Style\bootstrap.min.css" />
+    <Content Include="Tasks\Style\style.css" />
     <Content Include="Tasks\tasks.html" />
     <Content Include="Web.config" />
   </ItemGroup>
