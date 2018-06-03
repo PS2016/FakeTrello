@@ -18,28 +18,29 @@ namespace FT.Mock
                 u.Email = MockString.GetEmail();
                 u.FirstName = MockString.GetName();
                 u.LastName = MockString.GetName();
-
-              
                 u.Id = Guid.NewGuid();
+                u.LastLogin = new DateTime();
             });
 
             factory.Define<TaskApiModel>(d =>
             {
-                var user = factory.Create<UserApiModel>();
+                
 
                 d.Id = Guid.NewGuid();
-
-
-
+                d.Priority = Data.Priority.High;
+                d.State = Data.State.InProgress;
+                d.Title = "title";
+                d.Type = Data.Type.UserStory;
             });
 
             factory.Define<TaskCommentApiModel>(dm =>
             {
+                var user = factory.Create<UserApiModel>();
                 var d = factory.Create<TaskApiModel>();
                 dm.DateCreated = DateTime.Now;
                 dm.TaskId = d.Id;
-
                 dm.Id = Guid.NewGuid();
+                dm.UserId = user.Id;
             });
         }
     }
