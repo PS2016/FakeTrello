@@ -1,6 +1,6 @@
 ﻿$(() => {
     $.ajax({
-        url: "localhost:33033/getAll"
+        url: "./getAll"
     }).done(function (response) {
         tasks = JSON.parse(response);
     });
