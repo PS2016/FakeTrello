@@ -1,12 +1,7 @@
 ﻿using FT.Api.Base;
 using FT.Api.Model;
 using FT.Services;
-using FT.Services.Services;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace FT.Api.Controllers

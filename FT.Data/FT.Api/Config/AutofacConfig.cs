@@ -1,6 +1,5 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
-using Autofac.Integration.WebApi;
 using FT.Data;
 using System.Web.Http;
 using System.Web.Mvc;
