@@ -14,7 +14,7 @@ namespace FT.Services
 
         }
 
-        public async System.Threading.Tasks.Task<TaskApiModel> Get(Guid Id)
+        public async System.Threading.Tasks.Task<TaskApiModel> GetAsync(Guid Id)
         {
             var res = await _context.Tasks.FirstOrDefaultAsync(t => t.Id == Id);
 
@@ -22,7 +22,7 @@ namespace FT.Services
 
         }
 
-        public async System.Threading.Tasks.Task<List<TaskApiModel>> GetAll()
+        public async System.Threading.Tasks.Task<List<TaskApiModel>> GetAllAsync()
         {
             var res =  _context.Tasks;
 
@@ -38,11 +38,11 @@ namespace FT.Services
 
             _context.SaveChanges();
 
-            return await Get(model.Id);
+            return await GetAsync(model.Id);
 
         }
 
-        public async System.Threading.Tasks.Task<TaskApiModel> Update(TaskApiModel model)
+        public async System.Threading.Tasks.Task<TaskApiModel> UpdateAsync(TaskApiModel model)
         {
             var res = await _context.Tasks.FirstOrDefaultAsync(t => t.Id == model.Id);
 
@@ -53,26 +53,16 @@ namespace FT.Services
 
             await _context.SaveChangesAsync();
 
-            return await Get(res.Id);
+            return await GetAsync(res.Id);
         }
-
-        public async System.Threading.Tasks.Task<bool> Delete(Guid Id)
-        public List<TaskApiModel> GetAll(Guid Id)
+        
+        public async System.Threading.Tasks.Task<bool> DeleteAsync(Guid Id)
         {
-
-            return new List<TaskApiModel>();
-
-        }
-        public void Delete(Guid TaskId)
-        {
-   
-                var task = _context.Users.FirstOrDefault(x => x.Id == TaskId);
+                var task = await _context.Users.FirstOrDefaultAsync(x => x.Id == Id);
                 _context.Users.Remove(task);
                 _context.SaveChanges();
-                
-            
-
-            var deleteTry = Get(Id);
+                 
+            var deleteTry = GetAsync(Id);
 
             return deleteTry == null;
         }

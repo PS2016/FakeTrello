@@ -21,14 +21,26 @@ namespace FT.Api.Controllers
         [HttpGet]
         public async System.Threading.Tasks.Task<ListResponse<TaskApiModel>> GetAll()
         {
-            return new ListResponse<TaskApiModel> { Items = await _service.GetAll() };
+            return new ListResponse<TaskApiModel> { Items = await _service.GetAllAsync() };
         }
 
         [HttpDelete]
         public async System.Threading.Tasks.Task<bool> Delete(Guid Id)
         {
-            return await _service.Delete(Id);
+            return await _service.DeleteAsync(Id);
         }
 
+
+        [HttpPost]
+        public async System.Threading.Tasks.Task<ModelResponse<TaskApiModel>> Create(TaskApiModel model)
+        {
+            return new ModelResponse<TaskApiModel> { Item = await _service.CreateAsync(model) };
+        }
+
+        [HttpPut]
+        public async System.Threading.Tasks.Task<ModelResponse<TaskApiModel>> Put(TaskApiModel model)
+        {
+            return new ModelResponse<TaskApiModel> { Item = await _service.UpdateAsync(model) };
+        }
     }
 }
