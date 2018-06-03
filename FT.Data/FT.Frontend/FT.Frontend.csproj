@@ -68,6 +68,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Tasks\Script\bootstrap.bundle.js" />
+    <Content Include="Tasks\Script\bootstrap.js" />
+    <Content Include="Tasks\Script\jquery.js" />
+    <Content Include="Tasks\Style\bootstrap-grid.css" />
+    <Content Include="Tasks\Style\bootstrap-reboot.css" />
+    <Content Include="Tasks\Style\bootstrap-theme.css" />
+    <Content Include="Tasks\Style\bootstrap.css" />
+    <Content Include="Tasks\Style\bootstrap.min.css" />
+    <Content Include="Tasks\tasks.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
