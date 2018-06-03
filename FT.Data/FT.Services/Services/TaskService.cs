@@ -43,7 +43,7 @@ namespace FT.Services
                 var task = _context.Users.FirstOrDefault(x => x.Id == TaskId);
                 _context.Users.Remove(task);
                 _context.SaveChanges();
-                return true;
+                
             
 
 
