@@ -102,5 +102,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FT.Api.Model\FT.Api.Model.csproj">
+      <Project>{19DC05D7-9F69-4704-8A39-5B90094211A4}</Project>
+      <Name>FT.Api.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

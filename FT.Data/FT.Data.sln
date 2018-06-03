@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FT.Services", "FT.Services\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FT.Frontend", "FT.Frontend\FT.Frontend.csproj", "{4FE8C989-8C6F-494B-AF58-1DB5CA6B974B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FT.Api.Model", "FT.Api.Model\FT.Api.Model.csproj", "{19DC05D7-9F69-4704-8A39-5B90094211A4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{4FE8C989-8C6F-494B-AF58-1DB5CA6B974B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4FE8C989-8C6F-494B-AF58-1DB5CA6B974B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4FE8C989-8C6F-494B-AF58-1DB5CA6B974B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19DC05D7-9F69-4704-8A39-5B90094211A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19DC05D7-9F69-4704-8A39-5B90094211A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19DC05D7-9F69-4704-8A39-5B90094211A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19DC05D7-9F69-4704-8A39-5B90094211A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
