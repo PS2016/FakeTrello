@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FT.Data", "FT.Data\FT.Data.csproj", "{152BD0DD-F353-455E-9221-ED5DD4474CDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TableModel", "TableModel\TableModel.csproj", "{63C55981-87DD-4BD0-BAA5-5F9141E283F6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FT.Frontend", "FT.Frontend\FT.Frontend.csproj", "{4FE8C989-8C6F-494B-AF58-1DB5CA6B974B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,6 @@ Global
 		{152BD0DD-F353-455E-9221-ED5DD4474CDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{152BD0DD-F353-455E-9221-ED5DD4474CDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{152BD0DD-F353-455E-9221-ED5DD4474CDD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{63C55981-87DD-4BD0-BAA5-5F9141E283F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{63C55981-87DD-4BD0-BAA5-5F9141E283F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{63C55981-87DD-4BD0-BAA5-5F9141E283F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{63C55981-87DD-4BD0-BAA5-5F9141E283F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
