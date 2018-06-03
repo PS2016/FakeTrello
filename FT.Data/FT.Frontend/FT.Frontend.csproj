@@ -84,11 +84,8 @@
     <Content Include="Login\css\bootstrap-reboot.min.css" />
     <Content Include="Login\css\bootstrap.css" />
     <Content Include="Login\css\bootstrap.min.css" />
-    <Content Include="Login\js\jquery-1.11.1.min.js" />
     <Content Include="Login\Index.html" />
     <Content Include="Login\css\IndexStale.css" />
-    <Content Include="Login\js\bootstrap.js" />
-    <Content Include="Login\js\bootstrap.min.js" />
     <Content Include="Login\Scripts\IndexJs.js" />
     <Content Include="Login\Scripts\bootstrap.bundle.js" />
     <Content Include="Login\Scripts\bootstrap.bundle.min.js" />
