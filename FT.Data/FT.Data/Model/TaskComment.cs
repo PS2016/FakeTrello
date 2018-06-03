@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FT.Data
 {
-    public class TaskComments
+    public class TaskComment
     {
         [Key,Column(Order = 1)]
         public Guid Id { get; set; }
