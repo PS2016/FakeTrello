@@ -4,15 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FT.Data.Enums
+namespace FT.Data
 {
-    public class PriorityEnum
+    public enum Priority
     {
-        public enum Priority
-        {
-            Low = 0x01,
-            Normal = 0x02,
-            High = 0x03
-        }
+        Low = 0x01,
+        Normal = 0x02,
+        High = 0x03
     }
 }

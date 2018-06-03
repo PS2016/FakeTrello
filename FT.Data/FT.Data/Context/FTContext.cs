@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FT.Data.Base
+namespace FT.Data
 {
     public class FTContext : DbContext
     {
