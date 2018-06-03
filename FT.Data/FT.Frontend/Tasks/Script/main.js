@@ -1,7 +1,9 @@
 ﻿$(() => {
-   /* $.get("localhost:33033/all", function (data) {
-        alert("Load was performed.");
-    });*/
+    $.ajax({
+        url: "localhost:33033/getAll"
+    }).done(function (response) {
+        tasks = JSON.parse(response);
+    });
     $(".panel-group").html("");
     for (var task of tasks) {
         let priority = "default";

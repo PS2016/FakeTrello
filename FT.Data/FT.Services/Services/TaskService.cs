@@ -65,8 +65,8 @@ namespace FT.Services
                  
             var deleteTry = GetAsync(Id);
 
-        //    return deleteTry == null;
-        //}
+            return deleteTry == null;
+        }
 
     }
 }
