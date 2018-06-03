@@ -1,9 +1,14 @@
 ﻿$(() => {
     $.ajax({
-        url: "./getAll"
-    }).done(function (response) {
-        tasks = JSON.parse(response);
-    });
+        url: "../api/v1/tasks/getall",
+        success: function (response) {
+            tasks = JSON.parse(response);
+            Init();
+        }
+    });   
+});
+
+function Init() {
     $(".panel-group").html("");
     for (var task of tasks) {
         let priority = "default";
@@ -27,8 +32,7 @@
                     </div>
             </div>`);
     }
-    
-});
+}
 
 var tasks = [
     {

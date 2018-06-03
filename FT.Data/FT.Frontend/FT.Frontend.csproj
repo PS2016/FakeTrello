@@ -55,6 +55,12 @@
     <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -166,6 +172,17 @@
     <Content Include="Login\Scripts\umd\popper-utils.min.js" />
     <Content Include="Login\Scripts\umd\popper.js" />
     <Content Include="Login\Scripts\umd\popper.min.js" />
+    <Content Include="Tasks\Script\bootstrap.bundle.js" />
+    <Content Include="Tasks\Script\bootstrap.js" />
+    <Content Include="Tasks\Script\jquery.js" />
+    <Content Include="Tasks\Script\main.js" />
+    <Content Include="Tasks\Style\bootstrap-grid.css" />
+    <Content Include="Tasks\Style\bootstrap-reboot.css" />
+    <Content Include="Tasks\Style\bootstrap-theme.css" />
+    <Content Include="Tasks\Style\bootstrap.css" />
+    <Content Include="Tasks\Style\bootstrap.min.css" />
+    <Content Include="Tasks\Style\style.css" />
+    <Content Include="Tasks\tasks.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

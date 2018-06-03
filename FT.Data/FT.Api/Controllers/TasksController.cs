@@ -16,6 +16,7 @@ namespace FT.Api.Controllers
         }
 
         [HttpGet]
+        [Route("getall")]
         public async System.Threading.Tasks.Task<ListResponse<TaskApiModel>> GetAll()
         {
             return new ListResponse<TaskApiModel> { Items = await _service.GetAllAsync() };
