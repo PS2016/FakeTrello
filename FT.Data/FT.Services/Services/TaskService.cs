@@ -3,7 +3,8 @@ using FT.Data;
 using System;
 using System.Linq;
 
-namespace FT.Services.Services
+
+namespace FT.Services
 {
     public class TaskService : ServiceBase
     {
