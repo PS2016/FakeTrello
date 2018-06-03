@@ -10,5 +10,10 @@ namespace FT.Api.Test.Controllers
     [TestClass]
     public class TasksControllerTest
     {
+        [TestMethod]
+        public async Task GetAllTasks()
+        {
+           
+        }
     }
 }
