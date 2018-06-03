@@ -8,7 +8,7 @@ namespace FT.Services
 {
     public class TaskService : ServiceBase
     {
-        public TaskService(FTContext context): base(context)
+        public TaskService(FTContext context) : base(context)
         {
 
         }
@@ -53,9 +53,9 @@ namespace FT.Services
 
             _context.SaveChanges();
 
-            var deleteTry = Get(Id); 
+            var deleteTry = Get(Id);
 
-            return deleteTry==null;
+            return deleteTry == null;
         }
 
     }
