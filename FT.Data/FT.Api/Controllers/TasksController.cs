@@ -1,34 +1,43 @@
 ﻿using FT.Api.Model;
+using FT.Data;
+using FT.Services;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace FT.Api.Controllers
 {
+    [VersionRoute("tasks")]
     public class TasksController : ApiController
     {
-        //private readonly TasksService _service;
-        //public TasksController(TasksService service) : base(service)
-        //{
-        //    _service = service;
-        //}
+        private TaskService _service;
+        public TasksController(TaskService service)
+        {
+            _service = service;
+        }
 
-        //[HttpGet]
-        //[Route("all")]
-        //public ListResponse<TaskApiModel> GetAll([FromUri]Guid userId)
-        //{
-        //    return PrepareResponse<ListResponse<TaskApiModel>>(x => x.Items = _service.GetAll(userId));
-        //}
+        [HttpGet]
+        public async System.Threading.Tasks.Task<ListResponse<TaskApiModel>> GetAll()
+        {
+            return new ListResponse<TaskApiModel> { Items = await _service.GetAllAsync() };
+        }
 
-        //[HttpGet]
-        //[Route("clear")]
-        //public ResponseBase Clear([FromUri]Guid taskId)
-        //{
-        //    _service.Clear(taskId);
-        //    return PrepareResponse<ResponseBase>();
-        //}
+        [HttpDelete]
+        public async System.Threading.Tasks.Task<bool> Delete(Guid Id)
+        {
+            return await _service.DeleteAsync(Id);
+        }
+
+
+        [HttpPost]
+        public async System.Threading.Tasks.Task<ModelResponse<TaskApiModel>> Create(TaskApiModel model)
+        {
+            return new ModelResponse<TaskApiModel> { Item = await _service.CreateAsync(model) };
+        }
+
+        [HttpPut]
+        public async System.Threading.Tasks.Task<ModelResponse<TaskApiModel>> Put(TaskApiModel model)
+        {
+            return new ModelResponse<TaskApiModel> { Item = await _service.UpdateAsync(model) };
+        }
     }
 }

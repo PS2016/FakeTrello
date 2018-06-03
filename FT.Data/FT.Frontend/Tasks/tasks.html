@@ -5,28 +5,77 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="Style/bootstrap.min.css">
+    <link rel="stylesheet" href="Style/style.css">
 </head>
 <body>
     <div class="container">
         <h2>Tasks</h2>
         <p>Here you can see all your tasks.</p>
         <div class="panel-group">
-            <div class="panel panel-success" onclick="ShowTask(id)">
-                <div class="panel-heading task-heading">Task #1 (Low)</div>
-                <div class="panel-body task-body">Task description short</div>
+            <div class="comment">
+
             </div>
-            <div class="panel panel-warning">
-                <div class="panel-heading task-heading">Task #2 (Medium)</div>
-                <div class="panel-body task-body">Task description short</div>
-            </div>
-            <div class="panel panel-danger">
-                <div class="panel-heading task-heading">Task #3 (High)</div>
-                <div class="panel-body task-body">Task description short</div>
+        </div>
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#addTask">Add Task</button>
+
+        <div id="addTask" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Add Task</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/" method="post">
+                            <input name="Id" type="hidden" />
+                            <div class="form-group float-label-control">
+                                <label for="">Title</label>
+                                <input class="form-control" type="text" name="Title" placeholder="Title">
+                            </div>
+                            <div class="form-group float-label-control">
+                                <label for="">Description</label>
+                                <textarea style="resize: vertical;" class="form-control" placeholder="Description" rows="1"></textarea>
+                            </div>
+                            <div class="form-group float-label-control">
+                                <label for="">Priority</label>
+                                <select class="form-control" name="Priority">
+                                    <option>Low</option>
+                                    <option>Medium</option>
+                                    <option>High</option>
+                                </select>
+                            </div>
+                            <div class="form-group float-label-control">
+                                <label for="">Type</label>
+                                <select class="form-control" name="Type">
+                                    <option>Bug</option>
+                                    <option>ChangeRequest</option>
+                                    <option>UserStory</option>
+                                </select>
+                            </div>
+                            <div class="form-group float-label-control">
+                                <label for="">State</label>
+                                <select class="form-control" name="State">
+                                    <option>New</option>
+                                    <option>Planned</option>
+                                    <option>InProgress</option>
+                                    <option>InTesting</option>
+                                    <option>Ready_For_Release</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-success">Submit</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </form>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
-    <script src="Script/bootstrap.js"></script>
+        
+
     <script src="Script/jquery.js"></script>
+    <script src="Script/bootstrap.js"></script>
     <script src="Script/main.js"></script>
 </body>
 </html>
