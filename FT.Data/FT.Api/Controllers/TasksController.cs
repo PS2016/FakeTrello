@@ -10,7 +10,8 @@ using System.Web.Http;
 
 namespace FT.Api.Controllers
 {
-    public class TasksController : ApiController
+    [VersionRoute("tasks")]
+    public class TasksController : ControllerBase
     {
         private TaskService _service;
         public TasksController(TaskService service)

@@ -166,6 +166,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\VersionRoutAttribut.cs" />
     <Compile Include="Config\WebApiConfig.cs" />
     <Compile Include="Base\ControllerBase.cs" />
     <Compile Include="Config\AutofacConfig.cs" />
