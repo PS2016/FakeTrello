@@ -46,6 +46,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -218,6 +224,14 @@
     <ProjectReference Include="..\FT.Api.Model\FT.Api.Model.csproj">
       <Project>{19dc05d7-9f69-4704-8a39-5b90094211a4}</Project>
       <Name>FT.Api.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FT.Data\FT.Data.csproj">
+      <Project>{152BD0DD-F353-455E-9221-ED5DD4474CDD}</Project>
+      <Name>FT.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FT.Services\FT.Services.csproj">
+      <Project>{742fb4dd-e960-435a-b9f3-6ff1105a8619}</Project>
+      <Name>FT.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FT.Services.Base
 {
-    public class ServiceBase<Tcontext> where Tcontext:DbContext
+    public class ServiceBase<TModel> where Tcontext:DbContext
     {
         protected readonly Tcontext _context;
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FT.Api.Base;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -7,7 +8,7 @@ using System.Web.Http;
 
 namespace FT.Api.Controllers
 {
-    public class UserController : ApiController
+    public class UserController : ControllerBase
     {
         //private readonly UserService _service;
 

@@ -9,9 +9,9 @@ using System.Web.Http;
 
 namespace FT.Api.Controllers
 {
-    public class CommentsController : ModelControllerBase<TaskCommentApiModel, Guid>
+    public class CommentsController : ControllerBase
     {
-        //public CommentsController(ModelServiceBase<TaskCommentApiModel, Guid> service) : base(service)
+        //public CommentsController(CommentsController service) : base(service)
         //{
         //}
     }

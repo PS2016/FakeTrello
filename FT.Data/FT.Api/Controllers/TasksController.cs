@@ -1,4 +1,6 @@
-﻿using FT.Api.Model;
+﻿using FT.Api.Base;
+using FT.Api.Model;
+using FT.Services.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,10 +10,10 @@ using System.Web.Http;
 
 namespace FT.Api.Controllers
 {
-    public class TasksController : ApiController
+    public class TasksController : ControllerBase
     {
-        //private readonly TasksService _service;
-        //public TasksController(TasksService service) : base(service)
+        private readonly TaskServices _service;
+        //public TasksController(TaskServices service) : base(service)
         //{
         //    _service = service;
         //}

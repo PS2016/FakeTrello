@@ -1,4 +1,5 @@
 ﻿using FT.Api.Model;
+using FT.Services.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,14 +8,14 @@ using System.Web.Http;
 
 namespace FT.Api.Base
 {
-    public class ModelControllerBase<TModel, TKey> : ControllerBase
+    public class ModelControllerBase<TModel> : ControllerBase
     {
-        //private readonly ModelServiceBase<TModel, TKey> _service;
+        private readonly ServiceBase<TModel> _service;
 
-        //public ModelControllerBase(ModelServiceBase<TModel, TKey> service)
-        //{
-        //    _service = service;
-        //}
+        public ModelControllerBase(ServiceBase<TModel> service)
+        {
+            _service = service;
+        }
 
         //[HttpGet]
         //[Route("")]
@@ -42,10 +43,11 @@ namespace FT.Api.Base
 
         //[HttpPost]
         //[Route("")]
-        //public ResponseBase Create(TKey id)
+        //public ResponseBase Create(Guid id)
         //{
         //    _service.Delete(id);
         //    return PrepareResponse<ResponseBase>();
-        }
+        //}
     }
+}
 
