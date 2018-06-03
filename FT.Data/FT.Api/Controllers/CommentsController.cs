@@ -1,12 +1,7 @@
 ﻿using FT.Api.Base;
 using FT.Api.Model;
-
 using FT.Services.Services;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace FT.Api.Controllers
@@ -14,8 +9,8 @@ namespace FT.Api.Controllers
     [VersionRoute("comments")]
     public class CommentsController : ControllerBase
     {
-        private readonly TaskCommentsServices _service;
-        public CommentsController(TaskCommentsServices service) 
+        private readonly TaskCommentsService _service;
+        public CommentsController(TaskCommentsService service) 
         {
             _service = service;
         }
