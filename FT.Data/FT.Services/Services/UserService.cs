@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using FT.Api.Model;
 using FT.Data;
+using FT.Services.Config;
 using System;
 using System.Linq;
 using System.Web.Helpers;
@@ -57,6 +58,11 @@ namespace FT.Services.Services
             }
             else return false;
 
+        }
+        public UserApiModel GetByEmail(string email)
+        {
+            var user = _context.Users.FirstOrDefault(x => x.Email == email);
+            return AutoMapperConfig.Mapper.Map<User, UserApiModel>(user);
         }
     }
 }
