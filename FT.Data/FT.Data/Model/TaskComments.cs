@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FT.Data.DataModel
+namespace FT.Data
 {
     public class TaskComments
     {

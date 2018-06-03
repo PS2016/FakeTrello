@@ -1,4 +1,5 @@
 ﻿using FT.Api.Model;
+using FT.Data.DataModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,7 @@ namespace FT.Services.Services
         }
         public UserApiModel Add(UserApiModel NewUser)
         {
+            User user = new User { };
             return NewUser;
         }
         public UserApiModel Update(UserApiModel NewUser)

@@ -107,6 +107,10 @@
       <Project>{19DC05D7-9F69-4704-8A39-5B90094211A4}</Project>
       <Name>FT.Api.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FT.Data\FT.Data.csproj">
+      <Project>{152BD0DD-F353-455E-9221-ED5DD4474CDD}</Project>
+      <Name>FT.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
