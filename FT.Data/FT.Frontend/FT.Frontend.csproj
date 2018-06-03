@@ -71,6 +71,7 @@
     <Content Include="Tasks\Script\bootstrap.bundle.js" />
     <Content Include="Tasks\Script\bootstrap.js" />
     <Content Include="Tasks\Script\jquery.js" />
+    <Content Include="Tasks\Script\main.js" />
     <Content Include="Tasks\Style\bootstrap-grid.css" />
     <Content Include="Tasks\Style\bootstrap-reboot.css" />
     <Content Include="Tasks\Style\bootstrap-theme.css" />
