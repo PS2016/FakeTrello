@@ -1,4 +1,5 @@
-﻿using FT.Api.Model;
+﻿
+using FT.Data;
 using FT.Mock.Mock;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace FT.Mock
     {
         public  static void Configure(DbFactory factory)
         {
-            factory.Define<UserApiModel>(u =>
+            factory.Define<User>(u =>
             {
                 u.Email = MockString.GetEmail();
                 u.FirstName = MockString.GetName();
@@ -22,10 +23,10 @@ namespace FT.Mock
                 u.LastLogin = new DateTime();
             });
 
-            factory.Define<TaskApiModel>(d =>
+            factory.Define<Data.Task>(d =>
             {
-                
-
+              
+               
                 d.Id = Guid.NewGuid();
                 d.Priority = Data.Priority.High;
                 d.State = Data.State.InProgress;
@@ -33,10 +34,10 @@ namespace FT.Mock
                 d.Type = Data.Type.UserStory;
             });
 
-            factory.Define<TaskCommentApiModel>(dm =>
+            factory.Define<TaskComment>(dm =>
             {
-                var user = factory.Create<UserApiModel>();
-                var d = factory.Create<TaskApiModel>();
+                var user = factory.Create<User>();
+                var d = factory.Create<Data.Task>();
                 dm.DateCreated = DateTime.Now;
                 dm.TaskId = d.Id;
                 dm.Id = Guid.NewGuid();
