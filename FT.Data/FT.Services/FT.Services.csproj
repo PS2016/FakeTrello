@@ -94,7 +94,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Autofac\AutofacConfig.cs" />
     <Compile Include="Base\ServiceBase.cs" />
     <Compile Include="Config\AutoMapperConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
