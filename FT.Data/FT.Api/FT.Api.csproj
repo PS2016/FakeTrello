@@ -168,7 +168,6 @@
   <ItemGroup>
     <Compile Include="Config\WebApiConfig.cs" />
     <Compile Include="Base\ControllerBase.cs" />
-    <Compile Include="Base\ModelControllerBase.cs" />
     <Compile Include="Config\AutofacConfig.cs" />
     <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\TasksController.cs" />
