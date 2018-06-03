@@ -40,10 +40,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\ModelResponse.cs" />
+    <Compile Include="Base\ResponseBase.cs" />
+    <Compile Include="Base\ListResponse.cs" />
+    <Compile Include="Errors\BaseError.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TaskCommentApiModel.cs" />
-    <Compile Include="TaskApiModel.cs" />
-    <Compile Include="UserApiModel.cs" />
+    <Compile Include="Models\TaskCommentApiModel.cs" />
+    <Compile Include="Models\TaskApiModel.cs" />
+    <Compile Include="Models\UserApiModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FT.Data\FT.Data.csproj">
+      <Project>{152bd0dd-f353-455e-9221-ed5dd4474cdd}</Project>
+      <Name>FT.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
