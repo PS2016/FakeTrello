@@ -1,6 +1,5 @@
-﻿using System;
-using static FT.Data.Enums.PriorityEnum;
-using static FT.Data.Enums.StateEnum;
+﻿using FT.Data;
+using System;
 
 namespace FT.Api.Model
 {
