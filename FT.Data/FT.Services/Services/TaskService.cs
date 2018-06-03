@@ -45,25 +45,26 @@ namespace FT.Services
             return await Get(res.Id);
         }
 
-        public async System.Threading.Tasks.Task<bool> Delete(Guid Id)
-        public List<TaskApiModel> GetAll(Guid Id)
-        {
+        //public async System.Threading.Tasks.Task<bool> Delete(Guid Id)
+        //{ }
+        //public List<TaskApiModel> GetAll(Guid Id)
+        //{
 
-            return new List<TaskApiModel>();
+        //    return new List<TaskApiModel>();
 
-        }
-        public void Delete(Guid TaskId)
-        {
-            var res = await _context.Tasks.FirstOrDefaultAsync(t => t.Id == Id);
+        //}
+        //public void Delete(Guid TaskId)
+        //{
+        //    var res = await _context.Tasks.FirstOrDefaultAsync(t => t.Id == Id);
 
-            _context.Tasks.Remove(res);
+        //    _context.Tasks.Remove(res);
 
-            _context.SaveChanges();
+        //    _context.SaveChanges();
 
-            var deleteTry = Get(Id);
+        //    var deleteTry = Get(Id);
 
-            return deleteTry == null;
-        }
+        //    return deleteTry == null;
+        //}
 
     }
 }

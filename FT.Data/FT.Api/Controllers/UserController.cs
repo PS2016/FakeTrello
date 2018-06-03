@@ -21,36 +21,36 @@ namespace FT.Api.Controllers
         }
 
 
-        //[HttpGet]
-        //[Route("")]
-        //public ModelResponse<UserApiModel> Get(Guid id)
-        //{
-        //    var item = _service.Get(id);
-        //    return PrepareResponse<ModelResponse<UserApiModel>>(x => x.Item = item);
-        //}
+        [HttpGet]
+        [Route("")]
+        public ModelResponse<UserApiModel> Get(Guid id)
+        {
+            var item = _service.Get(id);
+            return PrepareResponse<ModelResponse<UserApiModel>>(x => x.Item = item);
+        }
 
-        //[HttpPost]
-        //[Route("")]
-        //public ModelResponse<UserApiModel> Post(UserApiModel model)
-        //{
-        //    var item = _service.Create(model);
-        //    return PrepareResponse<ModelResponse<UserApiModel>>(x => x.Item = item);
-        //}
+        [HttpPost]
+        [Route("")]
+        public ModelResponse<UserApiModel> Post(UserApiModel model)
+        {
+            var item = _service.Add(model);
+            return PrepareResponse<ModelResponse<UserApiModel>>(x => x.Item = item);
+        }
 
-        //[HttpPut]
-        //[Route("")]
-        //public ModelResponse<UserApiModel> Put(UserApiModel model)
-        //{
-        //    var item = _service.Update(model);
-        //    return PrepareResponse<ModelResponse<UserApiModel>>(x => x.Item = item);
-        //}
+        [HttpPut]
+        [Route("")]
+        public ModelResponse<UserApiModel> Put(UserApiModel model)
+        {
+            var item = _service.Update(model);
+            return PrepareResponse<ModelResponse<UserApiModel>>(x => x.Item = item);
+        }
 
-        //[HttpPost]
-        //[Route("")]
-        //public ResponseBase Create(Guid id)
-        //{
-        //    _service.Delete(id);
-        //    return PrepareResponse<ResponseBase>();
-        //}
+        [HttpPost]
+        [Route("")]
+        public ResponseBase Create(Guid id)
+        {
+            _service.Delete(id);
+            return PrepareResponse<ResponseBase>();
+        }
     }
 }

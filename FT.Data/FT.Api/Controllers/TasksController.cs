@@ -44,28 +44,28 @@ namespace FT.Api.Controllers
             return PrepareResponse<ModelResponse<TaskApiModel>>(x => x.Item = item);
         }
 
-        //[HttpPost]
-        //[Route("")]
-        //public ModelResponse<TaskApiModel> Post(TaskApiModel model)
-        //{
-        //    var item = _service.Create(model);
-        //    return PrepareResponse<ModelResponse<TaskApiModel>>(x => x.Item = item);
-        //}
+        [HttpPost]
+        [Route("")]
+        public ModelResponse<TaskApiModel> Post(TaskApiModel model)
+        {
+            var item = _service.Create(model);
+            return PrepareResponse<ModelResponse<TaskApiModel>>(x => x.Item = item);
+        }
 
-        //[HttpPut]
-        //[Route("")]
-        //public ModelResponse<TaskApiModel> Put(TaskApiModel model)
-        //{
-        //    var item = _service.Update(model);
-        //    return PrepareResponse<ModelResponse<TaskApiModel>>(x => x.Item = item);
-        //}
+        [HttpPut]
+        [Route("")]
+        public ModelResponse<TaskApiModel> Put(TaskApiModel model)
+        {
+            var item = _service.Update(model);
+            return PrepareResponse<ModelResponse<TaskApiModel>>(x => x.Item = item);
+        }
 
-        //[HttpPost]
-        //[Route("")]
-        //public ResponseBase Create(Guid id)
-        //{
-        //    _service.Delete(id);
-        //    return PrepareResponse<ResponseBase>();
-        //}
+        [HttpPost]
+        [Route("")]
+        public ResponseBase Create(Guid id)
+        {
+            _service.Delete(id);
+            return PrepareResponse<ResponseBase>();
+        }
     }
 }
