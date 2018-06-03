@@ -1,40 +1,55 @@
 ﻿using FT.Api.Model;
 using FT.Data;
 using System;
-using System.Linq;
-
+using AutoMapper;
+using System.Data.Entity;
 
 namespace FT.Services
 {
     public class TaskService : ServiceBase
     {
-        public TaskService(FTContext context): base(context)
+        public TaskService(FTContext context) : base(context)
         {
 
         }
 
-        public TaskApiModel Get(Guid Id)
+        public async System.Threading.Tasks.Task<TaskApiModel> Get(Guid Id)
         {
-            var res = _context.Tasks.FirstOrDefault(t => t.Id == Id);
-            var task= AutoMapper.Mapper.Map<TaskApiModel>(res);
-            return task;
+            var res = await _context.Tasks.FirstOrDefaultAsync(t => t.Id == Id);
+
+            return Mapper.Map<Task, TaskApiModel>(res);
 
         }
-        public TaskApiModel Add(TaskApiModel NewTask)
+
+        public async System.Threading.Tasks.Task<TaskApiModel> CreateAsync(TaskApiModel model)
         {
-            var task = AutoMapper.Mapper.Map<Task>(NewTask);
-            _context.Tasks.Add(task);
+            _context.Tasks.Add(Mapper.Map<TaskApiModel, Task>(model));
+
             _context.SaveChanges();
-            return NewTask;
+
+            return await Get(model.Id);
 
         }
-        public TaskApiModel Update(TaskApiModel NewTask)
+
+        public async System.Threading.Tasks.Task<TaskApiModel> Update(TaskApiModel model)
         {
-            var task = AutoMapper.Mapper.Map<Task>(NewTask);
-            var taskFind =_context.Tasks.FirstOrDefault(x=>x.Id==NewTask.Id);
-            taskFind = task;
-            _context.SaveChanges();
-            return NewTask;
+            var res = await _context.Tasks.FirstOrDefaultAsync(t => t.Id == model.Id);
+
+            res.Priority = model.Priority;
+            res.State = model.State;
+            res.Title = model.Title;
+            res.Description = model.Description;
+
+            await _context.SaveChangesAsync();
+
+            return await Get(res.Id);
+        }
+
+        public async System.Threading.Tasks.Task<bool> Delete(Guid Id)
+        public List<TaskApiModel> GetAll(Guid Id)
+        {
+
+            return new List<TaskApiModel>();
 
         }
         public void Delete(Guid TaskId)
@@ -46,7 +61,10 @@ namespace FT.Services
                 
             
 
+            var deleteTry = Get(Id);
 
+            return deleteTry == null;
         }
+
     }
 }

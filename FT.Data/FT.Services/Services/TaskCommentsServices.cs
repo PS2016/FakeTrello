@@ -1,10 +1,8 @@
 ﻿using FT.Api.Model;
 using FT.Data;
+using FT.Services.Config;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FT.Services.Services
 {
@@ -40,9 +38,6 @@ namespace FT.Services.Services
         }
         public void Delete(Guid Id)
         {
-            var model = _context.TaskComments.FirstOrDefault(x => x.Id == Id);
-            _context.TaskComments.Remove(model);
-
         }
     }
 }
