@@ -1,7 +1,9 @@
-﻿using System;
+﻿using FT.Api.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Http;
 
 namespace FT.Api.Base
 {
@@ -44,6 +46,6 @@ namespace FT.Api.Base
         //{
         //    _service.Delete(id);
         //    return PrepareResponse<ResponseBase>();
-        //}
+        }
     }
 }

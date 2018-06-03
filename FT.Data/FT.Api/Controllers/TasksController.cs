@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FT.Api.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -17,16 +18,16 @@ namespace FT.Api.Controllers
 
         //[HttpGet]
         //[Route("all")]
-        //public ListResponse<TaskModel> GetAll([FromUri]Guid userId)
+        //public ListResponse<TaskApiModel> GetAll([FromUri]Guid userId)
         //{
-        //    return PrepareResponse<ListResponse<TaskModel>>(x => x.Items = _service.GetAll(userId));
+        //    return PrepareResponse<ListResponse<TaskApiModel>>(x => x.Items = _service.GetAll(userId));
         //}
 
         //[HttpGet]
         //[Route("clear")]
         //public ResponseBase Clear([FromUri]Guid taskId)
         //{
-        //    _service.Clear(diaryId);
+        //    _service.Clear(taskId);
         //    return PrepareResponse<ResponseBase>();
         //}
     }
